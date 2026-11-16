@@ -2,11 +2,194 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>Tomato Health</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tomaten-Doktor | Pflanzen-Check</title>
+    <style>
+        /* Grün-Weißes, freundliches Design */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f0f7f2;
+            color: #2c3e50;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+        }
+        .container {
+            background-color: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 15px rgba(46, 125, 50, 0.1);
+            border-top: 8px solid #4caf50;
+        }
+        /* Die rote zwinkernde Tomate */
+        .logo {
+            text-align: center;
+            margin-bottom: 10px;
+        }
+        .tomato-icon {
+            display: inline-block;
+            font-size: 60px;
+            position: relative;
+        }
+        .wink {
+            font-size: 24px;
+            position: absolute;
+            top: 22px;
+            left: 18px;
+        }
+        h1 {
+            color: #2e7d32;
+            text-align: center;
+            margin-top: 5px;
+        }
+        .step {
+            margin-top: 25px;
+            padding: 20px;
+            background-color: #f9fdf9;
+            border: 1px solid #c8e6c9;
+            border-radius: 10px;
+        }
+        h2 {
+            color: #388e3c;
+            font-size: 1.2em;
+            margin-top: 0;
+        }
+        button {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            margin: 10px 0;
+            background-color: #4caf50;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: left;
+            transition: background-color 0.2s;
+        }
+        button:hover {
+            background-color: #388e3c;
+        }
+        .example {
+            font-size: 0.85em;
+            color: #e8f5e9;
+            display: block;
+            margin-top: 4px;
+        }
+        .hidden {
+            display: none;
+        }
+        .result-box {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #e8f5e9;
+            border-left: 5px solid #2e7d32;
+        }
+        .skill-link {
+            display: inline-block;
+            margin-top: 15px;
+            color: #2e7d32;
+            font-weight: bold;
+            text-decoration: none;
+        }
+        .skill-link:hover {
+            text-decoration: underline;
+        }
+    </style>
 </head>
 <body>
-    <h1>Tomato Health</h1>
-    <p></p>
+
+<div class="container">
+    <!-- Symbol: Rote zwinkernde Tomate -->
+    <div class="logo">
+        <div class="tomato-icon">🍅<span class="wink">😉</span></div>
+    </div>
+    <h1>Tomaten-Check</h1>
+    <p style="text-align: center;">Wähle deine Sorte und prüfe, wie es deiner Pflanze geht!</p>
+
+    <!-- Schritt 1: Sortenwahl -->
+    <div id="step1" class="step">
+        <h2>1. Welche Tomaten-Art hast du?</h2>
+        
+        <button onclick="selectType('Hybrid-Zuchtpflanze (Resistent)')">
+            <strong>Hybrid-Zuchtpflanze (oft resistent)</strong>
+            <span class="example">Beispiele: Harzfeuer F1, Phantasia F1, Philovita F1</span>
+        </button>
+
+        <button onclick="selectType('Nicht-resistente Zuchtsorte')">
+            <strong>Klassische Zuchtsorte (nicht resistent)</strong>
+            <span class="example">Beispiele: Ochsenherz, San Marzano, Moneymaker</span>
+        </button>
+
+        <button onclick="selectType('Wildtomate')">
+            <strong>Wildtomate (sehr robust)</strong>
+            <span class="example">Beispiele: Rote Murmel, Humboldtii, Johannisbeertomate</span>
+        </button>
+    </div>
+
+    <!-- Schritt 2: Gesundheits-Check -->
+    <div id="step2" class="step hidden">
+        <h2>2. Was fällt dir an deiner <span id="chosenType" style="color:#1b5e20;"></span> auf?</h2>
+        
+        <button onclick="showResult('gesund')">✅ Kräftige grüne Blätter, alles sieht super aus</button>
+        <button onclick="showResult('hornwurm')">🐛 Abgefressene Blätter & große grüne Raupen</button>
+        <button onclick="showResult('schimmel')">🍄 Grauer oder weißer Belag, braune Flecken</button>
+        <button onclick="showResult('sonnenbrand')">☀️ Weiße oder hellbraune, papierartige Flecken auf den Früchten</button>
+    </div>
+
+    <!-- Ergebnis-Anzeige -->
+    <div id="result" class="result-box hidden">
+        <h3 id="resultTitle" style="margin-top:0; color:#2e7d32;"></h3>
+        <p id="resultText"></p>
+        <a href="#top" class="skill-link" onclick="resetCheck()">🔄 Neuen Tomaten-Check starten (Skill-Link)</a>
+    </div>
+</div>
+
+<script>
+    let currentTomatoType = "";
+
+    function selectType(type) {
+        currentTomatoType = type;
+        document.getElementById('chosenType').innerText = type;
+        document.getElementById('step1').classList.add('hidden');
+        document.getElementById('step2').classList.remove('hidden');
+    }
+
+    function showResult(condition) {
+        const resultDiv = document.getElementById('result');
+        const title = document.getElementById('resultTitle');
+        const text = document.getElementById('resultText');
+        
+        document.getElementById('step2').classList.add('hidden');
+        resultDiv.classList.remove('hidden');
+
+        if (condition === 'gesund') {
+            title.innerText = "🎉 Deiner Tomate geht es prima!";
+            text.innerText = "Deine " + currentTomatoType + " ist kerngesund. Gieße sie weiterhin regelmäßig an den Wurzeln und gib ihr genug Sonne.";
+        } else if (condition === 'hornwurm') {
+            title.innerText = "🐛 Achtung: Hornwurmbefall!";
+            text.innerText = "Die großen Raupen fressen extrem schnell. Sammle sie am besten sofort per Hand ab, da selbst eine " + currentTomatoType + " darunter stark leidet.";
+        } else if (condition === 'schimmel') {
+            title.innerText = "🍄 Verdacht auf Schimmel / Krautfäule";
+            text.innerText = "Entferne betroffene Blätter sofort (nicht auf den Kompost!). Besonders bei nicht-resistenten Sorten solltest du jetzt auf trockene Blätter achten und nur von unten gießen.";
+        } else if (condition === 'sonnenbrand') {
+            title.innerText = "☀️ Deine Tomate hat Sonnenbrand";
+            text.innerText = "Zu viel pralle Mittagssonne hat die Schale verbrannt. Sorge für etwas Schatten (z. B. ein Sonnensegel) und entferne nicht zu viele schützende Blätter.";
+        }
+    }
+
+    function resetCheck() {
+        document.getElementById('result').classList.add('hidden');
+        document.getElementById('step1').classList.remove('hidden');
+    }
+</script>
+
 </body>
 </html>
+
 
