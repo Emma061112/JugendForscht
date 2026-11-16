@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Tomaten-Doktor KI | Pflanzen-Check</title>
+    <title>Tomato Health | Check with AI</title>
     <style>
-        /* Grün-Weißes, freundliches Design */
+
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background-color: #f0f7f2;
@@ -38,7 +38,7 @@
             font-size: 1.05em;
             margin-top: 0;
         }
-        /* Info-Boxen auf der Hauptseite */
+        
         .info-section {
             background-color: #f4fbf5;
             border: 1px solid #c8e6c9;
@@ -64,7 +64,7 @@
             border-left: 4px solid #66bb6a;
             font-size: 0.9em;
         }
-        /* Auswahl-Bereich */
+        
         .step {
             padding: 20px;
             background-color: #ffffff;
@@ -128,25 +128,25 @@
 
 <div class="container">
     
-    <!-- Cartoon-Tomate mit Gesicht (SVG) -->
+    
     <div class="header">
         <svg width="110" height="110" viewBox="0 0 120 120" xmlns="http://w3.org">
-            <!-- Roter Tomatenkörper -->
+            
             <ellipse cx="60" cy="68" rx="48" ry="42" fill="#e53935" />
-            <!-- Glanzlicht -->
+            
             <ellipse cx="38" cy="52" rx="8" ry="14" transform="rotate(-25 38 52)" fill="#ff8a80" opacity="0.6" />
-            <!-- Grüner Strunk / Blätter -->
+            
             <path d="M60 32 C50 15, 30 22, 25 32 C40 30, 50 35, 55 40 C45 45, 38 55, 42 58 C50 50, 58 43, 60 43 C62 43, 70 50, 78 58 C82 55, 75 45, 65 40 C70 35, 80 30, 95 32 C90 22, 70 15, 60 32 Z" fill="#2e7d32"/>
             <path d="M58 28 L60 12 L64 28 Z" fill="#1b5e20"/>
-            <!-- Cartoon-Gesicht (verschmolzen im Körper) -->
-            <!-- Linkes Auge (offen) -->
+            
+            
             <circle cx="44" cy="68" r="6" fill="#2c3e50"/>
             <circle cx="42" cy="66" r="2" fill="#ffffff"/>
-            <!-- Rechtes Auge (zwinkernd) -->
+        
             <path d="M70 68 Q76 62 82 68" stroke="#2c3e50" stroke-width="4" fill="none" stroke-linecap="round"/>
-            <!-- Freundlicher Mund -->
+            
             <path d="M48 82 Q60 94 72 82" stroke="#2c3e50" stroke-width="4" fill="none" stroke-linecap="round"/>
-            <!-- Süße Wangen -->
+            
             <ellipse cx="36" cy="76" rx="5" ry="3" fill="#ff8a80" opacity="0.8"/>
             <ellipse cx="84" cy="76" rx="5" ry="3" fill="#ff8a80" opacity="0.8"/>
         </svg>
@@ -154,49 +154,49 @@
         <p class="subtitle">Dein freundlicher Pflanzen-Check für gesunde Tomaten</p>
     </div>
 
-    <!-- Hauptseite: Informationen -->
+    
     <div id="main-info" class="info-section">
-        <h2>Willkommen beim Tomaten-Check! 🌱</h2>
-        <p>Mit unserer künstlichen Intelligenz kannst du ganz einfach per Kamera prüfen, wie es deiner Tomatenpflanze geht. Unsere KI erkennt vier Zustände:</p>
+        <h2>Welcome! 🌱</h2>
+        <p> With my AI you can check your tomato's health easily. Just take a picture and receive your advice. My AI recognizes four conditions:</p>
         
         <div class="info-grid">
-            <div class="info-card"><strong>✅ Gesund:</strong> Kräftige Blätter & Früchte</div>
-            <div class="info-card"><strong>🐛 Hornwurmbefall:</strong> Fraßspuren & Raupen</div>
-            <div class="info-card"><strong>🍄 Schimmel:</strong> Pilzbefall & Krautfäule</div>
-            <div class="info-card"><strong>☀️ Sonnenbrand:</strong> Helle Verbrennungsflecken</div>
+            <div class="info-card"><strong>✅ Healthy:</strong> strong leaves & fruits</div>
+            <div class="info-card"><strong>🐛 Hornwurmbefall:</strong> Eat traces & caterpillars</div> 
+            <div class="info-card"><strong>🍄 Schimmel:</strong> Fungal infestation & cabbage rot</div>
+            <div class="info-card"><strong>☀️ Sonnenbrand:</strong> Light burn stains</div>
         </div>
     </div>
 
-    <!-- Schritt 1: Sortenwahl -->
+    
     <div id="step1" class="step">
-        <h3>Schritt 1: Wähle deine Tomaten-Sorte</h3>
-        <p style="font-size: 0.9em; color: #555; margin-top: -5px;">Je nach Züchtung sind Pflanzen unterschiedlich anfällig. Klicke auf deine Sorte, um den Kamera-Check zu starten:</p>
+        <h3>Step 1: Choose your tomato-sort</h3>
+        <p style="font-size: 0.9em; color: #555; margin-top: -5px;">Depending on the breeding, plants are differently susceptible. Click on your variety to start the camera check:</p>
         
         <button onclick="startTeachableMachine('Hybrid-Zuchtpflanze (Resistent)')">
-            <strong>Hybrid-Zuchtpflanze (oft resistent)</strong>
-            <span class="example">Beispiele: Harzfeuer F1, Phantasia F1, Philovita F1</span>
+            <strong>Hybrid breeding plant (often resistant)</strong>
+            <span class="example">Examples: Harzfeuer F1, Phantasia F1, Philovita F1</span>
         </button>
 
         <button onclick="startTeachableMachine('Nicht-resistente Zuchtsorte')">
-            <strong>Klassische Zuchtsorte (nicht resistent)</strong>
-            <span class="example">Beispiele: Ochsenherz, San Marzano, Moneymaker</span>
+            <strong>Classic breed (not resistant)</strong>
+            <span class="example">Examples: Ochsenherz, San Marzano, Moneymaker</span>
         </button>
 
         <button onclick="startTeachableMachine('Wildtomate')">
-            <strong>Wildtomate (sehr robust)</strong>
-            <span class="example">Beispiele: Rote Murmel, Humboldtii, Johannisbeertomate</span>
+            <strong>Wild tomato (very robust)</strong>
+            <span class="example">Examples: Rote Murmel, Humboldtii, Johannisbeertomate</span>
         </button>
     </div>
 
     <!-- Schritt 2: Teachable Machine Bereich -->
     <div id="step2-tm" class="step hidden">
-        <h3>Schritt 2: KI-Check für <span id="chosenType" style="color:#1b5e20;"></span></h3>
+        <h3>Step 2: AI-Check for <span id="chosenType" style="color:#1b5e20;"></span></h3>
         <p>Halte jetzt deine Tomate in die Kamera, um sie auf <strong>Gesundheit, Hornwurmbefall, Schimmel oder Sonnenbrand</strong> zu prüfen.</p>
 
         <!-- HIER DEINEN TEACHABLE MACHINE CODE EINFÜGEN -->
         <div class="tm-box">
-            <p style="color: #2e7d32; font-weight: bold;">📷 Kamera & Teachable Machine Bereich</p>
-            <p style="font-size: 0.9em; color: #555;">Füge hier im Quellcode das Canvas-Element und das Skript von Google Teachable Machine ein.</p>
+            <p style="color: #2e7d32; font-weight: bold;">📷 Camera & Teachable Machine area</p>
+            <p style="font-size: 0.9em; color: #555;">Insert the canvas element and the script of Google Teachable Machine here in the source code.</p>
             
             <!-- Teachable Machine Container -->
             <div id="webcam-container"></div>
@@ -205,7 +205,7 @@
         <!-- ENDE TEACHABLE MACHINE CODE -->
 
         <div style="text-align: center;">
-            <a class="back-link" onclick="resetCheck()">⬅️ Zurück zur Startseite & Sortenwahl</a>
+            <a class="back-link" onclick="resetCheck()">⬅️ Back to homepage & variety selection</a>
         </div>
     </div>
 
@@ -213,16 +213,16 @@
 
 <script>
     function startTeachableMachine(type) {
-        // Gewählte Sorte anzeigen
+        
         document.getElementById('chosenType').innerText = type;
         
-        // Hauptinfos und Sortenwahl ausblenden, Kamera-Bereich zeigen
+        
         document.getElementById('main-info').classList.add('hidden');
         document.getElementById('step1').classList.add('hidden');
         document.getElementById('step2-tm').classList.remove('hidden');
 
-        // Falls du die init()-Funktion von Teachable Machine nutzt, kannst du sie hier aufrufen:
-        // init(); 
+        
+    
     }
 
     function resetCheck() {
@@ -232,9 +232,7 @@
     }
 </script>
 
-<!-- HIER UNTEN DIE TEACHABLE MACHINE SCRIPTS EINFÜGEN -->
-<!-- <script src="https://jsdelivr.net"></script> -->
-<!-- <script src="https://jsdelivr.net"></script> -->
+
 
 </body>
 </html>
